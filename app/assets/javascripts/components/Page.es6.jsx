@@ -2,15 +2,20 @@ class Page extends React.Component {
   constructor() {
     super();
     this.state = {
-      movie: []
+      movies: []
     }
+    this.returnSearch = this.returnSearch.bind(this)
+  }
+
+  returnSearch(response) {
+    this.setState({ movies: response })
   }
 
   render() {
     return(
       <div>
-      <Header />
-      <MovieSearch movie={this.state.movie}/>
+      <Header  returnSearch={this.returnSearch}/>
+      <MoviesResult movies= { this.state.movies }/>
     </div>
     )
   }

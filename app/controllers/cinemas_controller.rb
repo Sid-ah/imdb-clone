@@ -3,15 +3,13 @@ class CinemasController < ApplicationController
   end
 
   def search
-    root = "http://www.omdbapi.com/?s=#{query}&r=json"
-    response = Net::HTTp.get(URI(target))
-    parsed_response = JSON.parse(parse)['search']
-
+    root = "http://www.omdbapi.com/?s=#{params[:keyword]}&r=json"
+    response = Net::HTTP.get(URI(root))
+    parsed_response = JSON.parse(response)['Search']
     if parsed_response
-      # content_type :json
-      # {parsed_response}.to_json
+      render json: parsed_response
     else
-      # status: 422
+      status 422
     end
 
   end

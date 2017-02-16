@@ -1,18 +1,18 @@
-class MovieSearch extends React.Component {
+class Movie extends React.Component {
   render() {
     let movie = this.props.movie
     return(
         <section id='movie-container'>
           <li className="movie"/>
-              <img className="pic" src={movie.poster} alt=""/>
+              <img className="pic" src={movie.Poster} alt=""/>
               <div className="movie-content">
                 <p>
-                  <span className="movie">{movie.title}</span>
-                  <span className="year">{movie.released}</span>
-                  <span className="director">{movie.director}</span>
+                  <span className="movie">{movie.Title}</span>
+                  <span className="year">{movie.Released}</span>
+                  <span className="director">{movie.Director}</span>
                   <span className="imdbRating">{movie.imdbRating}</span>
                 </p>
-                <p>{movie.plot}</p>
+                <p>{movie.Plot}</p>
               </div>
         </section>
     )
