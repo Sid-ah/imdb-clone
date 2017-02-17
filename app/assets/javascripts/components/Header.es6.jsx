@@ -15,13 +15,17 @@ class Header extends React.Component {
 
   render() {
     return(
+      <nav>
       <header id="top-nav">
-        <div id="brand">IMDB</div>
-        <form id="search-form" onSubmit={this.handleSubmit}>
-          <input placeholder="sid" ref='content' id="search" type="text" name="query"/>
-        </form>
-        <i className="fa fa-search"></i>
+        <div className="nav-wrapper black">
+          <div id="brand">IMDB</div>
+            <form id="search-form" onSubmit={this.handleSubmit}>
+              <input placeholder="sid" ref='content' id="search" type="text" name="query"/>
+            </form>
+            <i className="fa fa-search"></i>
+        </div>
       </header>
+      </nav>
     )
   }
 }
