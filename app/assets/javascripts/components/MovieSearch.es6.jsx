@@ -7,17 +7,21 @@ class Movie extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
+
   returnMovie(response) {
     this.setState({ movie: response })
-
   }
 
   handleClick(e) {
     e.preventDefault();
+
+    let query = this.props.movie.Title
     $.ajax({
-      url: url
+      url: 'http://www.omdbapi.com/?t=' + query,
+      method: "get"
     }).done(response => {
-      this.returnMovie(response)
+      this.props.setMovie({ movie: response })
+      this.props.changeDetail(true)
     }.bind(this))
   }
 
@@ -30,7 +34,7 @@ class Movie extends React.Component {
             <img className="pic" src={movie.Poster} alt=""/>
             <div className="movie-content">
               <p>
-                <a href={url}><span className="movie">{movie.Title}</span></a>
+                <a onClick={this.handleClick} href={url}><span className="movie">{movie.Title}</span></a>
                 <span className="year">{movie.Released}</span>
                 <span className="director">{movie.Director}</span>
                 <span className="imdbRating">{movie.imdbRating}</span>

@@ -12,11 +12,4 @@ class CinemasController < ApplicationController
       status 422
     end
   end
-
-  def show
-    root = "http://www.omdbapi.com/?i=#{params[:id]}&r=json"
-    response = Net::HTTP.get(URI(root))
-    @movie = JSON.parse(response)
-    
-  end
 end
