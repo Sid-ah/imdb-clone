@@ -5,11 +5,11 @@ class Header extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault()
-    let query = this.refs.content.value
+    let query = `http://www.omdbapi.com/?s=${this.refs.content.value}&r=json`
     $.ajax({
-      url: `/cinemas/search/${query}`
+      url: query
     }).done(function(response) {
-      this.props.returnSearch(response)
+      this.props.returnSearch({ movies: response.Search })
     }.bind(this))
   }
 

@@ -12,7 +12,7 @@ class Page extends React.Component {
   }
 
   returnSearch(response) {
-    this.setState({ movies: response })
+    this.setState({ movies: response.movies })
   }
 
   changeDetail(boolean) {

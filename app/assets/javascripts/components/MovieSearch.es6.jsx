@@ -14,11 +14,9 @@ class Movie extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-
-    let query = this.props.movie.Title
+    let query = 'http://www.omdbapi.com/?t=' + this.props.movie.Title
     $.ajax({
-      url: 'http://www.omdbapi.com/?t=' + query,
-      method: "get"
+      url: query,
     }).done(response => {
       this.props.setMovie({ movie: response })
       this.props.changeDetail(true)
